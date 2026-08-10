@@ -1,5 +1,5 @@
-# CARAT
-Offical implementation of CARAT
+# MERP
+Official implementation of MERP
 
 ## Running the code
 ./train.sh
