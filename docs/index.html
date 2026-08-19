@@ -3,203 +3,158 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070914">
-  <meta name="generator" content="MERP Project Page">
-  <meta name="description" content="MERP — multimodal emotion recognition with Perceiver IO.">
-  <meta property="og:title" content="MERP — Multimodal Emotion Recognition">
-  <meta property="og:description" content="A Perceiver IO framework for robust multimodal, multi-label emotion recognition.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="generator" content="MERP Academic Project Page">
+  <meta name="description" content="MERP: A Latent-Bottleneck Framework for Robust Multi-Modal Multi-Label Emotion Recognition.">
+  <meta property="og:title" content="MERP: A Latent-Bottleneck Framework for Robust Multi-Modal Multi-Label Emotion Recognition">
+  <meta property="og:description" content="Official project page for MERP, a Perceiver-IO based framework for robust multi-modal multi-label emotion recognition.">
   <meta property="og:type" content="website">
-  <title>MERP · Multimodal Emotion Recognition</title>
+  <title>MERP · A Latent-Bottleneck Framework for Robust MMER</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="aurora aurora-one" aria-hidden="true"></div>
-  <div class="aurora aurora-two" aria-hidden="true"></div>
-
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="MERP home">
-      <span class="brand-mark" aria-hidden="true">
-        <i></i><i></i><i></i>
-      </span>
-      <span>MERP</span>
-    </a>
-    <nav aria-label="Primary navigation">
-      <a href="#overview">Overview</a>
-      <a href="#architecture">Architecture</a>
-      <a href="#quickstart">Quickstart</a>
-      <a href="https://github.com/Creative-zcx/MERP" class="nav-github" target="_blank" rel="noreferrer">
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="wordmark" href="#top">MERP</a>
+      <nav aria-label="Primary navigation">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#code">Code</a>
+      </nav>
+      <a class="github-link" href="https://github.com/Creative-zcx/MERP" target="_blank" rel="noreferrer">
         GitHub
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
-    </nav>
-    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
-      <span></span><span></span>
-    </button>
+    </div>
   </header>
 
-  <main>
-    <section class="hero section-shell">
-      <div class="hero-copy reveal">
-        <div class="eyebrow"><span></span> Multimodal emotion recognition</div>
-        <h1>Emotion lives<br>between the <em>signals.</em></h1>
-        <p class="hero-lede">
-          MERP brings language, vision, and acoustics into a shared latent space—using
-          Perceiver IO to reason across modalities and recognize multiple emotions at once.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#architecture">
-            Explore the model
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-          </a>
-          <a class="button button-secondary" href="https://github.com/Creative-zcx/MERP" target="_blank" rel="noreferrer">
-            View source
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h5v5M20 4l-9 9M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg>
-          </a>
-        </div>
-        <div class="hero-meta" aria-label="Project highlights">
-          <div><strong>03</strong><span>modalities</span></div>
-          <div><strong>06</strong><span>emotion labels</span></div>
-          <div><strong>01</strong><span>latent space</span></div>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal" aria-label="Animated visualization of multimodal signals flowing into a shared latent space">
-        <div class="orbit orbit-outer"></div>
-        <div class="orbit orbit-inner"></div>
-        <div class="signal signal-text"><span>T</span><small>language</small></div>
-        <div class="signal signal-vision"><span>V</span><small>vision</small></div>
-        <div class="signal signal-audio"><span>A</span><small>acoustics</small></div>
-        <div class="core">
-          <div class="core-pulse"></div>
-          <div class="core-grid"></div>
-          <strong>MERP</strong>
-          <span>shared latent space</span>
-        </div>
-        <svg class="signal-lines" viewBox="0 0 600 600" aria-hidden="true">
-          <defs>
-            <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#63e6ff"/><stop offset="1" stop-color="#9b7bff"/>
-            </linearGradient>
-          </defs>
-          <path d="M126 170 C220 180 205 285 300 300"/>
-          <path d="M475 160 C390 190 405 270 300 300"/>
-          <path d="M465 450 C390 405 395 335 300 300"/>
-          <circle cx="0" cy="0" r="4"><animateMotion dur="3.4s" repeatCount="indefinite" path="M126 170 C220 180 205 285 300 300"/></circle>
-          <circle cx="0" cy="0" r="4"><animateMotion dur="4s" repeatCount="indefinite" path="M475 160 C390 190 405 270 300 300"/></circle>
-          <circle cx="0" cy="0" r="4"><animateMotion dur="3.7s" repeatCount="indefinite" path="M465 450 C390 405 395 335 300 300"/></circle>
-        </svg>
-      </div>
-    </section>
-
-    <section class="statement section-shell reveal" id="overview">
-      <p class="section-index">01 / OVERVIEW</p>
-      <div>
-        <h2>Three perspectives.<br><span>One emotional context.</span></h2>
-        <p>Human emotion is rarely carried by a single cue. MERP learns from what is said, how it sounds, and what can be seen—while remaining testable when one modality is missing.</p>
-      </div>
-    </section>
-
-    <section class="modalities section-shell">
-      <article class="modality-card text-card reveal">
-        <div class="card-top"><span class="card-number">01</span><span class="status-dot"></span></div>
-        <div class="mini-viz text-viz" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-        <h3>Language</h3>
-        <p>Semantic features preserve what the speaker says and provide the sequence around each emotional cue.</p>
-        <span class="feature-tag">300-d input</span>
-      </article>
-      <article class="modality-card vision-card reveal">
-        <div class="card-top"><span class="card-number">02</span><span class="status-dot"></span></div>
-        <div class="mini-viz face-viz" aria-hidden="true">
-          <span class="face-ring"></span><i class="eye eye-left"></i><i class="eye eye-right"></i><i class="mouth"></i>
-        </div>
-        <h3>Vision</h3>
-        <p>Visual descriptors carry facial and behavioral signals that complement the spoken message.</p>
-        <span class="feature-tag">35-d input</span>
-      </article>
-      <article class="modality-card audio-card reveal">
-        <div class="card-top"><span class="card-number">03</span><span class="status-dot"></span></div>
-        <div class="mini-viz wave-viz" aria-hidden="true">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-        </div>
-        <h3>Acoustics</h3>
-        <p>Prosodic features capture tone, intensity, and rhythm—the emotional texture behind the words.</p>
-        <span class="feature-tag">74-d input</span>
-      </article>
-    </section>
-
-    <section class="architecture section-shell" id="architecture">
-      <div class="architecture-heading reveal">
-        <p class="section-index">02 / ARCHITECTURE</p>
-        <h2>A shared space for<br><span>cross-modal reasoning.</span></h2>
-        <p>Perceiver IO decouples input size from model depth. Modality-specific streams enter a compact latent bottleneck, then label-aware queries decode a representation for each emotion.</p>
-      </div>
-
-      <figure class="architecture-figure reveal">
-        <div class="figure-toolbar">
-          <span><i></i> MERP / FRAMEWORK OVERVIEW</span>
-          <a href="assets/merp-architecture.png" target="_blank" rel="noreferrer" aria-label="Open the full-resolution MERP architecture figure">
-            Full resolution
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-          </a>
-        </div>
-        <a class="figure-canvas" href="assets/merp-architecture.png" target="_blank" rel="noreferrer">
-          <img src="assets/merp-architecture.png" width="1794" height="796" alt="MERP framework with fixed latent encoding, prototype-guided enhancement, and confidence-aware fusion" loading="lazy">
+  <main id="top">
+    <section class="paper-hero page-shell">
+      <div class="venue-pill">Anonymous submission · 2026</div>
+      <h1><span>MERP:</span> A Latent-Bottleneck Framework for Robust Multi-Modal Multi-Label Emotion Recognition</h1>
+      <p class="authors">Anonymous Author(s)</p>
+      <p class="affiliation">Official project page and implementation</p>
+      <div class="hero-actions">
+        <a class="paper-button primary" href="https://github.com/Creative-zcx/MERP" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.5 1.4-4.5-2.5-6-3m12 6v-3.9c0-1.1.1-1.5-.5-2.1 3.2-.4 6.5-1.6 6.5-7a5.5 5.5 0 0 0-1.5-3.8A5.1 5.1 0 0 0 19.3 1S18.1.6 15 2.5a13.4 13.4 0 0 0-6 0C5.9.6 4.7 1 4.7 1a5.1 5.1 0 0 0-.2 4.2A5.5 5.5 0 0 0 3 9c0 5.4 3.3 6.6 6.5 7-.5.5-.6 1.1-.5 2.1V22"/></svg>
+          Code
         </a>
-        <figcaption>
-          <b>Framework overview.</b>
-          <span>MERP consists of three coordinated stages: fixed latent encoding, prototype-guided enhancement, and confidence-aware fusion.</span>
-        </figcaption>
+        <a class="paper-button" href="#method">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+          Method
+        </a>
+        <a class="paper-button" href="#results">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg>
+          Results
+        </a>
+      </div>
+
+      <figure class="hero-figure">
+        <a href="assets/merp-architecture.png" target="_blank" rel="noreferrer" aria-label="Open full-resolution MERP architecture">
+          <img src="assets/merp-architecture.png" width="1794" height="796" alt="Overview of the MERP architecture" fetchpriority="high">
+        </a>
+        <figcaption><strong>Figure 1.</strong> Overview of MERP. The framework combines fixed latent encoding, prototype-guided enhancement, and confidence-aware fusion.</figcaption>
       </figure>
+    </section>
 
-      <div class="principles">
-        <article class="reveal"><span>01</span><h3>Unified representation</h3><p>A shared latent array lets heterogeneous streams interact without requiring identical feature dimensions.</p></article>
-        <article class="reveal"><span>02</span><h3>Label-aware decoding</h3><p>Trainable output queries and label attention produce class-specific representations for multi-label prediction.</p></article>
-        <article class="reveal"><span>03</span><h3>Missing-modality evaluation</h3><p>Deterministic modality masking enables controlled robustness experiments on aligned and unaligned data.</p></article>
-        <article class="reveal"><span>04</span><h3>Representation learning</h3><p>Prototype memory, contrastive objectives, reconstruction, and gated score fusion shape the latent space.</p></article>
+    <section class="paper-section page-shell" id="abstract">
+      <h2>Abstract</h2>
+      <p class="abstract-text">
+        Multi-modal multi-label emotion recognition (MMER) requires identifying co-occurring emotions from textual, acoustic, and visual cues. Existing Transformer-fusion methods rely on dense self-attention over long concatenated multi-modal sequences, making them computationally heavy and brittle when modalities are incomplete. MERP is a Perceiver-IO based framework that distils the joint sequence into a small bank of learnable latent vectors through cross-attention and decodes label-specific scores using learnable label queries. The latent bottleneck aggregates information by content similarity, suppresses zero-padded missing tokens, and decouples representation cost from input length. A label-attentive enhancement branch, prototype-based supervised contrastive learning, spectral noise-gated attention, and gated multi-branch fusion further shape a discriminative and missingness-robust latent space.
+      </p>
+    </section>
+
+    <section class="paper-section tinted" id="method">
+      <div class="page-shell">
+        <div class="section-heading">
+          <p class="section-kicker">Method</p>
+          <h2>Robust reasoning through a fixed latent bottleneck</h2>
+          <p>MERP moves cross-modal reasoning away from the long input sequence and into a compact set of learnable latents.</p>
+        </div>
+        <div class="method-grid">
+          <article>
+            <span>01</span>
+            <h3>Fixed latent encoding</h3>
+            <p>Fourier-based feature preprocessors project text, vision, and audio into a shared channel space. Cross-attention compresses the joint sequence into 80 learnable latent vectors, followed by latent self-attention.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Prototype-guided enhancement</h3>
+            <p>Class-specific positive and negative prototypes guide supervised contrastive learning. Dynamic momentum updates and spectral noise-gated attention improve the discriminability of emotion representations.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Confidence-aware fusion</h3>
+            <p>Low-level, high-level, and enhanced predictions are combined by learnable confidence-aware gates, producing calibrated scores for six co-occurring emotion labels.</p>
+          </article>
+        </div>
+        <div class="technical-note">
+          <div><strong>Input</strong><span>Text · Vision · Audio</span></div>
+          <div><strong>Sequence length</strong><span>T = 60 per modality</span></div>
+          <div><strong>Latent bank</strong><span>L = 80, H = 256</span></div>
+          <div><strong>Output</strong><span>6 emotion labels</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="quickstart section-shell" id="quickstart">
-      <div class="quickstart-copy reveal">
-        <p class="section-index">03 / QUICKSTART</p>
-        <h2>From data to<br><span>training run.</span></h2>
-        <p>MERP supports aligned and unaligned CMU-MOSEI features. Configure the dataset path, choose your run mode, and launch with PyTorch distributed execution.</p>
-        <a class="text-link" href="https://github.com/Creative-zcx/MERP#quick-start" target="_blank" rel="noreferrer">Read the full setup guide <span>↗</span></a>
+    <section class="paper-section page-shell" id="results">
+      <div class="section-heading centered">
+        <p class="section-kicker">Experimental results</p>
+        <h2>Robust under modality missingness, efficient by design</h2>
+        <p>Results reported in the anonymous manuscript under 20% test-time random modality drop.</p>
       </div>
-      <div class="terminal reveal" aria-label="Example training commands">
-        <div class="terminal-bar"><span></span><span></span><span></span><small>MERP · zsh</small></div>
-        <pre><code><span class="comment"># clone the implementation</span>
-<span class="prompt">$</span> git clone git@github.com:Creative-zcx/MERP.git
-<span class="prompt">$</span> cd MERP
+      <div class="result-grid">
+        <article class="metric-card">
+          <span class="dataset">CMU-MOSEI</span>
+          <strong>0.563</strong>
+          <p>micro-F1</p>
+        </article>
+        <article class="metric-card">
+          <span class="dataset">M³ED</span>
+          <strong>0.780</strong>
+          <p>micro-F1</p>
+        </article>
+        <article class="metric-card compact">
+          <div><strong>5.28M</strong><span>parameters</span></div>
+          <div><strong>5.28 ms</strong><span>per sample</span></div>
+          <div><strong>2 GB</strong><span>inference memory</span></div>
+        </article>
+      </div>
+      <p class="result-note">MERP remains the strongest evaluated method across every tested missing-rate operating point on CMU-MOSEI (<i>p</i><sub>miss</sub> ∈ [0.0, 0.5]) while retaining the lowest deployment cost among competitive methods.</p>
+    </section>
 
-<span class="comment"># set --data_path in train.sh, then launch</span>
-<span class="prompt">$</span> chmod +x train.sh
-<span class="prompt">$</span> ./train.sh
+    <section class="paper-section tinted" id="code">
+      <div class="page-shell code-layout">
+        <div>
+          <p class="section-kicker">Implementation</p>
+          <h2>Reproduce MERP</h2>
+          <p>The repository includes aligned and unaligned CMU-MOSEI loaders, configurable Perceiver IO components, prototype and contrastive objectives, missing-modality evaluation, and the default training launcher.</p>
+          <a class="inline-link" href="https://github.com/Creative-zcx/MERP" target="_blank" rel="noreferrer">Browse the repository <span>→</span></a>
+        </div>
+        <pre><code><span># clone the repository</span>
+git clone git@github.com:Creative-zcx/MERP.git
+cd MERP
 
-<span class="success">◆ training multimodal representations...</span></code></pre>
+<span># configure the data path, then train</span>
+chmod +x train.sh
+./train.sh</code></pre>
       </div>
     </section>
 
-    <section class="cta section-shell reveal">
-      <div>
-        <p>OPEN RESEARCH IMPLEMENTATION</p>
-        <h2>See emotion<br>in full context.</h2>
-      </div>
-      <a class="cta-button" href="https://github.com/Creative-zcx/MERP" target="_blank" rel="noreferrer">
-        <span>Explore on GitHub</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-      </a>
+    <section class="paper-section page-shell citation-section">
+      <h2>Citation</h2>
+      <p>This work is currently an anonymous submission. Citation information will be added after publication.</p>
+      <div class="citation-placeholder">MERP: A Latent-Bottleneck Framework for Robust Multi-Modal Multi-Label Emotion Recognition. Anonymous submission, 2026.</div>
     </section>
   </main>
 
-  <footer class="site-footer section-shell">
-    <a class="brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i></span><span>MERP</span></a>
-    <p>Multimodal Emotion Recognition with Perceiver IO.</p>
-    <p>Built for research on CMU-MOSEI.</p>
+  <footer>
+    <div class="page-shell">
+      <span>MERP · Official Project Page</span>
+      <a href="https://github.com/Creative-zcx/MERP" target="_blank" rel="noreferrer">Source code</a>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
