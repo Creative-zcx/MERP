@@ -136,33 +136,22 @@
         <p>Perceiver IO decouples input size from model depth. Modality-specific streams enter a compact latent bottleneck, then label-aware queries decode a representation for each emotion.</p>
       </div>
 
-      <div class="pipeline reveal" role="img" aria-label="MERP processing pipeline from three inputs through positional encoding, Perceiver IO, label queries and multi-label prediction">
-        <div class="pipeline-stage inputs-stage">
-          <span class="stage-label">INPUT STREAMS</span>
-          <div class="input-pill cyan"><b>T</b><span>Language</span></div>
-          <div class="input-pill violet"><b>V</b><span>Vision</span></div>
-          <div class="input-pill coral"><b>A</b><span>Acoustics</span></div>
+      <figure class="architecture-figure reveal">
+        <div class="figure-toolbar">
+          <span><i></i> MERP / FRAMEWORK OVERVIEW</span>
+          <a href="assets/merp-architecture.png" target="_blank" rel="noreferrer" aria-label="Open the full-resolution MERP architecture figure">
+            Full resolution
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
         </div>
-        <div class="connector"><i></i><span>Fourier<br>encoding</span></div>
-        <div class="pipeline-stage perceiver-stage">
-          <span class="stage-label">PERCEIVER IO</span>
-          <div class="latent-grid" aria-hidden="true"></div>
-          <strong>Latent bottleneck</strong>
-          <small>cross-attend · self-attend</small>
-        </div>
-        <div class="connector"><i></i><span>trainable<br>queries</span></div>
-        <div class="pipeline-stage output-stage">
-          <span class="stage-label">LABEL SPACE</span>
-          <div class="emotion-list">
-            <span style="--level: 86%">happy <i></i></span>
-            <span style="--level: 71%">excited <i></i></span>
-            <span style="--level: 48%">surprise <i></i></span>
-            <span style="--level: 31%">sad <i></i></span>
-            <span style="--level: 18%">fear <i></i></span>
-            <span style="--level: 12%">anger <i></i></span>
-          </div>
-        </div>
-      </div>
+        <a class="figure-canvas" href="assets/merp-architecture.png" target="_blank" rel="noreferrer">
+          <img src="assets/merp-architecture.png" width="1794" height="796" alt="MERP framework with fixed latent encoding, prototype-guided enhancement, and confidence-aware fusion" loading="lazy">
+        </a>
+        <figcaption>
+          <b>Framework overview.</b>
+          <span>MERP consists of three coordinated stages: fixed latent encoding, prototype-guided enhancement, and confidence-aware fusion.</span>
+        </figcaption>
+      </figure>
 
       <div class="principles">
         <article class="reveal"><span>01</span><h3>Unified representation</h3><p>A shared latent array lets heterogeneous streams interact without requiring identical feature dimensions.</p></article>

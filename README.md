@@ -36,20 +36,15 @@ Emotion rarely lives in a single signal. MERP combines *what is said*, *how it s
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    T["Language · 300d"] --> PE["Fourier position encoding"]
-    V["Vision · 35d"] --> PE
-    A["Acoustics · 74d"] --> PE
-    PE --> CA["Cross-attention"]
-    CA --> L["Perceiver IO latent bottleneck"]
-    L --> SA["Latent self-attention"]
-    SA --> Q["Trainable label queries"]
-    Q --> G["Label attention + gated fusion"]
-    G --> O["6-way multi-label prediction"]
-```
+<p align="center">
+  <a href="https://creative-zcx.github.io/MERP/#architecture">
+    <img src="docs/assets/merp-architecture.png" width="100%" alt="MERP architecture: fixed latent encoding, prototype-guided enhancement, and confidence-aware fusion">
+  </a>
+</p>
 
-At its center, MERP uses a shared latent array to exchange information across heterogeneous streams without requiring them to share the same feature dimension. Class-specific queries then decode the fused representation into independent emotion scores.
+<p align="center"><sub><b>MERP architecture.</b> The framework combines fixed latent encoding, prototype-guided enhancement, and confidence-aware fusion for robust multimodal multi-label emotion recognition.</sub></p>
+
+At its center, MERP maps text, visual, and acoustic streams into a fixed latent sequence. Cross-attention and self-attention produce low- and high-level representations, while label readout builds emotion-specific features. Prototype-guided enhancement strengthens class structure in the representation space, and confidence-aware fusion combines complementary predictions into the final multi-label output.
 
 ## Quick start
 
