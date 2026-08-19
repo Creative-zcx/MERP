@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070914">
+  <meta name="description" content="MERP — multimodal emotion recognition with Perceiver IO.">
+  <meta property="og:title" content="MERP — Multimodal Emotion Recognition">
+  <meta property="og:description" content="A Perceiver IO framework for robust multimodal, multi-label emotion recognition.">
+  <meta property="og:type" content="website">
+  <title>MERP · Multimodal Emotion Recognition</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="aurora aurora-one" aria-hidden="true"></div>
+  <div class="aurora aurora-two" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="MERP home">
+      <span class="brand-mark" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </span>
+      <span>MERP</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#overview">Overview</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#quickstart">Quickstart</a>
+      <a href="https://github.com/Creative-zcx/MERP" class="nav-github" target="_blank" rel="noreferrer">
+        GitHub
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+    </nav>
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span></span> Multimodal emotion recognition</div>
+        <h1>Emotion lives<br>between the <em>signals.</em></h1>
+        <p class="hero-lede">
+          MERP brings language, vision, and acoustics into a shared latent space—using
+          Perceiver IO to reason across modalities and recognize multiple emotions at once.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#architecture">
+            Explore the model
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+          <a class="button button-secondary" href="https://github.com/Creative-zcx/MERP" target="_blank" rel="noreferrer">
+            View source
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h5v5M20 4l-9 9M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg>
+          </a>
+        </div>
+        <div class="hero-meta" aria-label="Project highlights">
+          <div><strong>03</strong><span>modalities</span></div>
+          <div><strong>06</strong><span>emotion labels</span></div>
+          <div><strong>01</strong><span>latent space</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="Animated visualization of multimodal signals flowing into a shared latent space">
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-inner"></div>
+        <div class="signal signal-text"><span>T</span><small>language</small></div>
+        <div class="signal signal-vision"><span>V</span><small>vision</small></div>
+        <div class="signal signal-audio"><span>A</span><small>acoustics</small></div>
+        <div class="core">
+          <div class="core-pulse"></div>
+          <div class="core-grid"></div>
+          <strong>MERP</strong>
+          <span>shared latent space</span>
+        </div>
+        <svg class="signal-lines" viewBox="0 0 600 600" aria-hidden="true">
+          <defs>
+            <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#63e6ff"/><stop offset="1" stop-color="#9b7bff"/>
+            </linearGradient>
+          </defs>
+          <path d="M126 170 C220 180 205 285 300 300"/>
+          <path d="M475 160 C390 190 405 270 300 300"/>
+          <path d="M465 450 C390 405 395 335 300 300"/>
+          <circle cx="0" cy="0" r="4"><animateMotion dur="3.4s" repeatCount="indefinite" path="M126 170 C220 180 205 285 300 300"/></circle>
+          <circle cx="0" cy="0" r="4"><animateMotion dur="4s" repeatCount="indefinite" path="M475 160 C390 190 405 270 300 300"/></circle>
+          <circle cx="0" cy="0" r="4"><animateMotion dur="3.7s" repeatCount="indefinite" path="M465 450 C390 405 395 335 300 300"/></circle>
+        </svg>
+      </div>
+    </section>
+
+    <section class="statement section-shell reveal" id="overview">
+      <p class="section-index">01 / OVERVIEW</p>
+      <div>
+        <h2>Three perspectives.<br><span>One emotional context.</span></h2>
+        <p>Human emotion is rarely carried by a single cue. MERP learns from what is said, how it sounds, and what can be seen—while remaining testable when one modality is missing.</p>
+      </div>
+    </section>
+
+    <section class="modalities section-shell">
+      <article class="modality-card text-card reveal">
+        <div class="card-top"><span class="card-number">01</span><span class="status-dot"></span></div>
+        <div class="mini-viz text-viz" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <h3>Language</h3>
+        <p>Semantic features preserve what the speaker says and provide the sequence around each emotional cue.</p>
+        <span class="feature-tag">300-d input</span>
+      </article>
+      <article class="modality-card vision-card reveal">
+        <div class="card-top"><span class="card-number">02</span><span class="status-dot"></span></div>
+        <div class="mini-viz face-viz" aria-hidden="true">
+          <span class="face-ring"></span><i class="eye eye-left"></i><i class="eye eye-right"></i><i class="mouth"></i>
+        </div>
+        <h3>Vision</h3>
+        <p>Visual descriptors carry facial and behavioral signals that complement the spoken message.</p>
+        <span class="feature-tag">35-d input</span>
+      </article>
+      <article class="modality-card audio-card reveal">
+        <div class="card-top"><span class="card-number">03</span><span class="status-dot"></span></div>
+        <div class="mini-viz wave-viz" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <h3>Acoustics</h3>
+        <p>Prosodic features capture tone, intensity, and rhythm—the emotional texture behind the words.</p>
+        <span class="feature-tag">74-d input</span>
+      </article>
+    </section>
+
+    <section class="architecture section-shell" id="architecture">
+      <div class="architecture-heading reveal">
+        <p class="section-index">02 / ARCHITECTURE</p>
+        <h2>A shared space for<br><span>cross-modal reasoning.</span></h2>
+        <p>Perceiver IO decouples input size from model depth. Modality-specific streams enter a compact latent bottleneck, then label-aware queries decode a representation for each emotion.</p>
+      </div>
+
+      <div class="pipeline reveal" role="img" aria-label="MERP processing pipeline from three inputs through positional encoding, Perceiver IO, label queries and multi-label prediction">
+        <div class="pipeline-stage inputs-stage">
+          <span class="stage-label">INPUT STREAMS</span>
+          <div class="input-pill cyan"><b>T</b><span>Language</span></div>
+          <div class="input-pill violet"><b>V</b><span>Vision</span></div>
+          <div class="input-pill coral"><b>A</b><span>Acoustics</span></div>
+        </div>
+        <div class="connector"><i></i><span>Fourier<br>encoding</span></div>
+        <div class="pipeline-stage perceiver-stage">
+          <span class="stage-label">PERCEIVER IO</span>
+          <div class="latent-grid" aria-hidden="true"></div>
+          <strong>Latent bottleneck</strong>
+          <small>cross-attend · self-attend</small>
+        </div>
+        <div class="connector"><i></i><span>trainable<br>queries</span></div>
+        <div class="pipeline-stage output-stage">
+          <span class="stage-label">LABEL SPACE</span>
+          <div class="emotion-list">
+            <span style="--level: 86%">happy <i></i></span>
+            <span style="--level: 71%">excited <i></i></span>
+            <span style="--level: 48%">surprise <i></i></span>
+            <span style="--level: 31%">sad <i></i></span>
+            <span style="--level: 18%">fear <i></i></span>
+            <span style="--level: 12%">anger <i></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="principles">
+        <article class="reveal"><span>01</span><h3>Unified representation</h3><p>A shared latent array lets heterogeneous streams interact without requiring identical feature dimensions.</p></article>
+        <article class="reveal"><span>02</span><h3>Label-aware decoding</h3><p>Trainable output queries and label attention produce class-specific representations for multi-label prediction.</p></article>
+        <article class="reveal"><span>03</span><h3>Missing-modality evaluation</h3><p>Deterministic modality masking enables controlled robustness experiments on aligned and unaligned data.</p></article>
+        <article class="reveal"><span>04</span><h3>Representation learning</h3><p>Prototype memory, contrastive objectives, reconstruction, and gated score fusion shape the latent space.</p></article>
+      </div>
+    </section>
+
+    <section class="quickstart section-shell" id="quickstart">
+      <div class="quickstart-copy reveal">
+        <p class="section-index">03 / QUICKSTART</p>
+        <h2>From data to<br><span>training run.</span></h2>
+        <p>MERP supports aligned and unaligned CMU-MOSEI features. Configure the dataset path, choose your run mode, and launch with PyTorch distributed execution.</p>
+        <a class="text-link" href="https://github.com/Creative-zcx/MERP#quick-start" target="_blank" rel="noreferrer">Read the full setup guide <span>↗</span></a>
+      </div>
+      <div class="terminal reveal" aria-label="Example training commands">
+        <div class="terminal-bar"><span></span><span></span><span></span><small>MERP · zsh</small></div>
+        <pre><code><span class="comment"># clone the implementation</span>
+<span class="prompt">$</span> git clone git@github.com:Creative-zcx/MERP.git
+<span class="prompt">$</span> cd MERP
+
+<span class="comment"># set --data_path in train.sh, then launch</span>
+<span class="prompt">$</span> chmod +x train.sh
+<span class="prompt">$</span> ./train.sh
+
+<span class="success">◆ training multimodal representations...</span></code></pre>
+      </div>
+    </section>
+
+    <section class="cta section-shell reveal">
+      <div>
+        <p>OPEN RESEARCH IMPLEMENTATION</p>
+        <h2>See emotion<br>in full context.</h2>
+      </div>
+      <a class="cta-button" href="https://github.com/Creative-zcx/MERP" target="_blank" rel="noreferrer">
+        <span>Explore on GitHub</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <a class="brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i></span><span>MERP</span></a>
+    <p>Multimodal Emotion Recognition with Perceiver IO.</p>
+    <p>Built for research on CMU-MOSEI.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
